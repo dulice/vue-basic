@@ -1,6 +1,10 @@
 <script setup>
+const props = defineProps({
+    title: String
+})
 </script>
 <template>
+    <h3>{{ title }}</h3>
   <div class="backdrop" @click.self="$emit('close')">
     <div class="modal">
         <slot name="header">

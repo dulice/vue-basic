@@ -1,8 +1,10 @@
 <script setup>
 import { ref } from 'vue';
 import Modal from './components/Modal.vue'
+import ReactionTimer from './pages/ReactionTimer.vue';
 
-  const title = ref("My First Vue App")
+  const title = ref("My First Vue App");
+  const propTitle = ref("Prop Title");
   const showModal = ref(false);
   const showModal2 = ref(false);
   function toggleModal() {
@@ -27,11 +29,13 @@ import Modal from './components/Modal.vue'
     </div>
   
     <div v-if="showModal2">
-      <Modal @close="showModal2 = false"/>
+      <Modal @close="showModal2 = false" :title="propTitle"/>
     </div>
   </Teleport>
   <button @click="toggleModal">Show Signup Modal</button>
   <button @click="showModal2 = !showModal2">Show Default Modal</button>
+
+  <ReactionTimer />
 </template>
 
 <style scoped>
