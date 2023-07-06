@@ -3,9 +3,16 @@
 <template>
   <div class="backdrop" @click.self="$emit('close')">
     <div class="modal">
-      <h1>Sign up for news letter</h1>
-      <p>Get update information and promo code</p>
-      <button @click="$emit('close')">Ok</button>
+        <slot name="header">
+            <h1>Default header</h1>
+        </slot>
+        <slot name="content">
+            <p>Default Title</p>
+        </slot>
+        <slot name="actions">
+            <button @click="$emit('close')">Cancel</button>
+            <button @click="$emit('close')">Ok</button>
+        </slot>
     </div>
   </div>
 </template>
