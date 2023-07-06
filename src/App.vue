@@ -1,5 +1,10 @@
+<script setup>
+import { ref } from 'vue';
+
+  const title = ref("My First Vue App")
+</script>
 <template>
-  <h3>Hello, World</h3>
+  <h3>{{ title }}</h3>
 </template>
 
 <style scoped>
