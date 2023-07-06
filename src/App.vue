@@ -2,9 +2,21 @@
 import { ref } from 'vue';
 
   const title = ref("My First Vue App")
+  const showModal = ref(false);
+  function toggleModal() {
+    showModal.value = !showModal.value;
+  }
 </script>
 <template>
   <h3>{{ title }}</h3>
+  <div v-if="showModal" class="backdrop">
+    <div class="modal">
+      <h1>Sign up for news letter</h1>
+      <p>Get update information and promo code</p>
+      <button @click="toggleModal">Ok</button>
+    </div>
+  </div>
+  <button @click="toggleModal">Show Modal</button>
 </template>
 
 <style scoped>
