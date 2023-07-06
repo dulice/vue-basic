@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import Modal from './components/Modal.vue'
 
   const title = ref("My First Vue App")
   const showModal = ref(false);
@@ -9,12 +10,8 @@ import { ref } from 'vue';
 </script>
 <template>
   <h3>{{ title }}</h3>
-  <div v-if="showModal" class="backdrop">
-    <div class="modal">
-      <h1>Sign up for news letter</h1>
-      <p>Get update information and promo code</p>
-      <button @click="toggleModal">Ok</button>
-    </div>
+  <div v-if="showModal">
+    <Modal @close="toggleModal" />
   </div>
   <button @click="toggleModal">Show Modal</button>
 </template>
