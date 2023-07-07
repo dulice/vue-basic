@@ -3,6 +3,7 @@
     <router-link to="/">Home</router-link>
     <router-link :to="{ name: 'ReactionTimer' }">Reaction Timer</router-link>
     <router-link :to="{ name: 'SignUp' }">SignUp</router-link>
+    <router-link :to="{ name: 'Jobs' }">Jobs</router-link>
   </div>
   <router-view/>
 </template>
