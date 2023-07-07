@@ -1,41 +1,26 @@
-<script setup>
-import { ref } from 'vue';
-import Modal from './components/Modal.vue'
-import ReactionTimer from './pages/ReactionTimer.vue';
-import FormInput from './pages/FormInput.vue';
-
-  const title = ref("My First Vue App");
-  const propTitle = ref("Prop Title");
-  const showModal = ref(false);
-  const showModal2 = ref(false);
-  function toggleModal() {
-    showModal.value = !showModal.value;
-  }
-</script>
 <template>
-  <h3>{{ title }}</h3>
-  <Teleport to="#modals">
-    <div v-if="showModal">
-      <Modal @close="toggleModal">
-        <template v-slot:header>
-          <h1>Sign up for news letter</h1>
-        </template>
-        <template v-slot:content>
-          <p>Get update information and promo code</p>
-        </template>
-        <template v-slot:actions>
-          <button @click="toggleModal">Ok</button>
-        </template>
-      </Modal>
-    </div>
-  
-    <div v-if="showModal2">
-      <Modal @close="showModal2 = false" :title="propTitle"/>
-    </div>
-  </Teleport>
-  <button @click="toggleModal">Show Signup Modal</button>
-  <button @click="showModal2 = !showModal2">Show Default Modal</button>
-
-  <!-- <ReactionTimer /> -->
-  <FormInput />
+  <div id="nav">
+    <router-link to="/">Home</router-link>
+    <router-link :to="{ name: 'ReactionTimer' }">Reaction Timer</router-link>
+    <router-link :to="{ name: 'SignUp' }">SignUp</router-link>
+  </div>
+  <router-view/>
 </template>
+<style>
+#nav {
+  padding: 0 0 30px;
+}
+  #nav a {
+    padding: 10px;
+    border-radius: 3px;
+    margin-left: 10px;
+  }
+  #nav a:hover {
+    background-color: #4169e150;
+    color: white;
+  }
+  .router-link-active {
+    background-color: royalblue;
+    color: white;
+  }
+</style>
